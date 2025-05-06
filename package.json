@@ -1,0 +1,47 @@
+{
+	"name": "threlte",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"lint": "eslint ."
+	},
+	"devDependencies": {
+		"@eslint/compat": "^1.2.9",
+		"@eslint/js": "^9.26.0",
+		"@sveltejs/adapter-auto": "^4.0.0",
+		"@sveltejs/adapter-static": "^3.0.8",
+		"@sveltejs/kit": "^2.20.8",
+		"@sveltejs/vite-plugin-svelte": "^5.0.3",
+		"@tailwindcss/forms": "^0.5.10",
+		"@tailwindcss/typography": "^0.5.16",
+		"@tailwindcss/vite": "^4.1.5",
+		"@zod/mini": "next",
+		"eslint": "^9.26.0",
+		"eslint-plugin-svelte": "^3.5.1",
+		"formsnap": "^2.0.1",
+		"globals": "^16.0.0",
+		"svelte": "^5.28.2",
+		"sveltekit-superforms": "^2.25.0",
+		"tailwindcss": "^4.1.5",
+		"vite": "^6.3.5"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@parcel/watcher",
+			"esbuild"
+		]
+	},
+	"packageManager": "pnpm@10.7.0+sha1.66453f13fbf9078d3db193718206a8d738afdbdb",
+	"dependencies": {
+		"@threlte/core": "^8.0.2",
+		"@threlte/extras": "^9.1.4",
+		"@threlte/flex": "^2.0.1",
+		"@threlte/studio": "^0.1.5",
+		"three": "^0.175.0"
+	}
+}
