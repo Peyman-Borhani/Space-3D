@@ -1,12 +1,25 @@
 # A Svelte + threlte 3D project
 
-- An example 3D project using Sveltekit, threlte.
-- Build tools: sv, pnpm, vite.
+- example 3D project using Sveltekit + threlte (three.js)
+- tools/libs: sv, pnpm, vite, threlte(core, extra)
+- tap items to switch into a different time-space.
+- double tap/click to start-stop rotation, move around...
 
-## Creating a svelte project
+## Todo
 
-Use ***' sv '*** to build a Svelte project, install instructions as bellow.
-more info: [`https://github.com/sveltejs/cli`](https://github.com/sveltejs/cli)
+- improve content, solar system, planets, real space.
+- reduce assets size, +compression while keep quality.
+- improve scenario, interaction, objectives (what to do)
+- improve moving controls, animation, add ambient sounds.
+
+---
+.
+.
+
+## Setup instructions - Create a new project
+
+save repo + install with pnpm or use ***' sv '*** to build a new Svelte project by following below instructions.  
+More info: [`https://github.com/sveltejs/cli`](https://github.com/sveltejs/cli)
 
 ```bash
 # to install sv
@@ -20,33 +33,32 @@ sv create
 
 # or in a new directory new_app
 sv create new_app
-```
 
-## Developing
+# add Dependencies: 
+pnpm  add  three @threlte/core @threlte/extra
 
-Add Dependencies: ` pnpm add three @threlte/core @threlte/extra `
+# to setup dependencies:
+pnpm  i
 
-To install: `pnpm i`  
-To update : `pnpm install`
+# or to update :
+pnpm  update
 
-To start a development server:
+# start a dev server:
+pnpm  run dev
 
-```bash
-pnpm run dev
-
-# or start the server and open the app in a new browser tab  
-
-pnpm run dev -- --open
+# or start dev server + open app in a new browser tab  
+pnpm  run dev -- --open
 ```
 
 ## Building
 
-To build your app for production:
+To build your app for production
 
 ```bash
-pnpm run build
-```
+pnpm  run build
 
-To preview the production build: `pnpm run preview`
+# preview the build:
+pnpm  run  preview
+```
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
