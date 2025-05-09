@@ -51,22 +51,28 @@
 $inspect(pos);
 
 
-function runK(e){
-  e=e.key; console.log(e);
-  switch (e) {
-      case 'ArrowLeft':  case 'a':    pos[0].target-=2;     break;
-      case 'ArrowRight': case 'd':    pos[0].target+=2;     break;
+function inpKB(e)
+{   
+    mov  =e.altKey? 'F'  :e.shiftKey? 'B'  : ''; 
+    
+    e=e.key;
+    if (e===path && mov_count<15) return;
+    //console.log('Key press: ', e,mov);
+    switch (e)
+    { //Directions:  L-eft | R-ight | D-own | U-p
+      case 'ArrowLeft':  case 'a':    path='L';    break;
+      case 'ArrowRight': case 'd':    path='R';    break;
+      case 'ArrowDown':  case 's':    path='D';    break;
+      case 'ArrowUp':    case 'w':    path='U';    break;
+      //Rotate player
+      case 'Tab':   cam[2] *= -1;     path='';     break;
+      //Move:  F-orward | B-ackward  
+      case 'Alt':   case 'e':   mov='F';   break;
+      case 'Shift': case 'x':   mov='B';   break;
 
-      case 'ArrowDown':  case 's':    pos[1].target-=2;     break;
-      case 'ArrowUp':    case 'w':    pos[1].target+=2;     break;
-
-      case ' ':       case 'e':       pos[2].target+=2;     break;
-      case 'Shift':   case 'x':       pos[2].target-=2;     break;
-  
-      default:    break;  
-  }
-  console.table(pos)
-  //pos[0] =R.x;  pos[1] =R.y;   pos[2] =R.z;
+      default: fly=false;  break;  
+    }
+    //console.table(pos) //pos[0] =R.x;  pos[1] =R.y;   pos[2] =R.z;
 }
     const xWorld =(x='')=> {day_night= x==='night'?-8 :(x==='dawn'||day_night===-8)? .8 :x==='dusk'? -2 :-8 }
 </script>
