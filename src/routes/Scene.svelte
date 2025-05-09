@@ -159,24 +159,27 @@ function inpKB(e)
 
 <!-- GLTF   url ='/assets/horse.gltf' / -->
 
-<Phonix    bind:pos  bind:pxcam />
+<Phonix    bind:pos  bind:pxcam  {fly}/>
 
-{#if day_night<0}
+
 
 {#await  moon  then  m }
+    {#if day_night<0}
         <T  
             is={m.scene}    position={[0, 24, -800]}
             scale={128}     rotation={[6, rotation, .4]}
             intensity={1}
         />
+    {/if}
 {/await}
 
 {#await  cosmos  then  m }
+    {#if day_night<0}
         <T  
             is={m.scene}    position={[0, 6144, -920]}
             scale={2048}    rotation={[256, 0, 0]} 
         />
+    {/if}
 {/await}
-{/if}
 
 <Text3DGeometry  args{[10,100,10]}  color='white' text='Hello' size={400} position ={[-10, 20, -24]} />
