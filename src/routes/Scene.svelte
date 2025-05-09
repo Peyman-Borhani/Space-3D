@@ -1,7 +1,7 @@
 <script>
     import      {T, useTask}        from '@threlte/core';
 
-    import      { useGltf,  GLTF, Text3DGeometry, Sky,
+    import      { useGltf,  GLTF, Text3DGeometry, Sky, useTexture,
                   interactivity,  TransformControls, useDraco,
                   OrbitControls,  useGltfAnimations }   from '@threlte/extras';
     
@@ -28,13 +28,18 @@
     const scale = [new Spring(1), new Spring(1)];
     const cam   = $state([new Spring(0), new Spring(128), new Spring(256)]);
     let pos   = $state([new Spring(0), new Spring(12), new Spring(26)]);
+    let path   = $state('');
+    let mov = $state('');
     //const cam   = [new Spring(0), new Spring(128), new Spring(256)];
     console.log('cam: ',cam[1])
     //let y = 1;//setInterval(()=>{ y=y>6? 1  :y+1}, 200)
     let rotation = $state(0);
     let autoRotate = $state(true);
     let day_night =$state(-8);
-    useTask( (delta)=> {rotation += delta*.3;  pos[0].target=rotation});
+    let fly =$state(false);
+    let mov_count = 0;
+    
+    useTask( (delta)=> { 
 
     const   itm  = $state( Array(2).fill({y: 12}) );
     let     pxcam= $state(false);
