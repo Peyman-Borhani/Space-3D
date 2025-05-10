@@ -39,7 +39,20 @@
     let fly =$state(false);
     let mov_count = 0;
     
-    useTask( (delta)=> { 
+useTask( (delta)=> { 
+        
+        rotation += delta*.3;
+    
+        if(mov_count>30) {path='';   mov_count=0}
+        if (path==='' && mov==='') {fly=false; return};
+        fly=true;   mov_count++;
+        
+
+        path==='L'? pos[0].target-=3  :path==='R'? pos[0].target+=3  
+        : path==='U'? pos[1].target+=3  :path==='D'? pos[1].target-=3  :{};
+
+        path==='F'? pos[2].target+=3  :path==='B'? pos[2].target-=3  :{}
+});
 
     const   itm  = $state( Array(2).fill({y: 12}) );
     let     pxcam= $state(false);
@@ -74,13 +87,15 @@ function inpKB(e)
     }
     //console.table(pos) //pos[0] =R.x;  pos[1] =R.y;   pos[2] =R.z;
 }
-    const xWorld =(x='')=> {day_night= x==='night'?-8 :(x==='dawn'||day_night===-8)? .8 :x==='dusk'? -2 :-8 }
+
+const   xWorld =(x='')=> {day_night= x==='night'?-8 :(x==='dawn'||day_night===-8)? .8 :x==='dusk'? -2 :-8 }
+
 </script>
   
 
 
 <svelte:window  ondblclick={_=>autoRotate=!autoRotate}  
-                onkeydown={runK}/>
+                onkeydown={inpKB}/>
 
 
 <T.PerspectiveCamera    
