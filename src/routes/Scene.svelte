@@ -41,18 +41,19 @@
     let mov_count = 0;
     
 useTask( (delta)=> { 
-        
+
         rotation += delta*.3;
     
-        if(mov_count>30) {path='';   mov_count=0}
-        if (path==='' && mov==='') {fly=false; return};
+        if(mov_count>25) {path='';  mov_count=0}
+        if (path==='' && mov==='') {fly=false; rotat[0].target=-1.2;   return};
+
         fly=true;   mov_count++;
         
 
         path==='L'? pos[0].target-=3  :path==='R'? pos[0].target+=3  
         : path==='U'? pos[1].target+=3  :path==='D'? pos[1].target-=3  :{};
 
-        path==='F'? pos[2].target+=3  :path==='B'? pos[2].target-=3  :{}
+        mov==='F'? pos[2].target+=3  :mov==='B'? pos[2].target-=3  :{}
 });
 
     const   itm  = $state( Array(2).fill({y: 12}) );
@@ -68,10 +69,10 @@ $inspect(pos);
 function inpKB(e)
 {   
     mov  =e.altKey? 'F'  :e.shiftKey? 'B'  : ''; 
-    
+    console.log('Key press: ', e,mov);    
     e=e.key;
-    if (e===path && mov_count<15) return;
-    //console.log('Key press: ', e,mov);
+    if (e.key===path && mov_count<15) return;
+
     switch (e)
     { //Directions:  L-eft | R-ight | D-own | U-p
       case 'ArrowLeft':  case 'a':    path='L';    break;
