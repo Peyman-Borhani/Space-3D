@@ -26,15 +26,16 @@
     interactivity();
 
     const scale = [new Spring(1), new Spring(1)];
-    const cam   = $state([new Spring(0), new Spring(128), new Spring(256)]);
-    let pos   = $state([new Spring(0), new Spring(12), new Spring(26)]);
-    let path   = $state('');
-    let mov = $state('');
+    let cam = $state([new Spring(0), new Spring(48), new Spring(256)]);
+    let pos   = $state([new Spring(0), new Spring(64), new Spring(26)]);
+    let rotat = $state([new Spring(-Math.PI /2, {damping:.2}), new Spring(1.55), new Spring(1.75)]);
+    let path  = $state('');
+    let mov   = $state('');
     //const cam   = [new Spring(0), new Spring(128), new Spring(256)];
     console.log('cam: ',cam[1])
     //let y = 1;//setInterval(()=>{ y=y>6? 1  :y+1}, 200)
     let rotation = $state(0);
-    let autoRotate = $state(true);
+    let autoRotate = $state(false);
     let day_night =$state(-8);
     let fly =$state(false);
     let mov_count = 0;
