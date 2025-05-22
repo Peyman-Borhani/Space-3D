@@ -1,16 +1,20 @@
 # A Svelte + threlte 3D project
 
 - example 3D project using Sveltekit + threlte (three.js)
-- tools/libs: sv, pnpm, vite, threlte(core, extra)
+- A good starter template + setup guide on the right tools.
+- tools/libs: sv, pnpm, vite, svelte, threlte...
 - tap items to switch into a different time-space.
 - double tap/click to start-stop rotation, move around...
 
 ## Todo
 
-- improve content, solar system, planets, real space.
-- reduce assets size, +compression while keep quality.
-- improve scenario, interaction, objectives (what to do)
-- improve moving controls, animation, add ambient sounds.
+- reduce assets size: higher compression at same quality (ready)  
+- improve UX: player control/moves/perspective/ergonomics (80%)  
+- improve 3D UX: graphics, moving, animation, composition (60%)  
+- improve scenario, interaction, objectives (what to do) (20%)  
+- improve immersion:  3D, +real space, game play, sounds (20%)  
+- add multiple modes/themes: day-night-space, play/demo mode (70%)  
+- improve space: add solar system `planets` + better space (10%)  
 
 ---
 .
@@ -23,19 +27,19 @@ More info: [`https://github.com/sveltejs/cli`](https://github.com/sveltejs/cli)
 
 ```bash
 # to install sv
-pnpm add -g sv
+pnpm  add -g sv
 
 # or to update sv
-pnpm update -g sv
+pnpm  update -g sv
 
 # create a new project in the current directory
-sv create
+sv  create
 
 # or in a new directory new_app
-sv create new_app
+sv  create new_app
 
 # add Dependencies: 
-pnpm  add  three @threlte/core @threlte/extra
+pnpm  add  three  @threlte/core  @threlte/extra
 
 # to setup dependencies:
 pnpm  i
@@ -47,15 +51,14 @@ pnpm  update
 pnpm  run dev
 
 # or start dev server + open app in a new browser tab  
-pnpm  run dev -- --open
+pnpm  run dev  --  --open
 ```
 
 ## Building
 
-To build your app for production
-
 ```bash
-pnpm  run build
+# build for production
+pnpm  run  build
 
 # preview the build:
 pnpm  run  preview
