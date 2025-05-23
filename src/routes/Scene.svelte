@@ -125,7 +125,7 @@ const   xWorld =(x='')=> {day_night= x==='night'?-8 :(x==='dawn'||day_night===-8
 {#if (day_night===.8 || day_night===-2)}
         <T.Mesh     position ={[0, -256, 0]}
                     receiveShadow
-                    rotation.x={-Math.PI / 2}
+                    rotation.x={HFngPI}
         >          
                     <T.SphereGeometry   args={[256, 64, 64]} />
                     <T.MeshStandardMaterial  color='#434'/>
@@ -176,15 +176,13 @@ const   xWorld =(x='')=> {day_night= x==='night'?-8 :(x==='dawn'||day_night===-8
 
 <!-- GLTF   url ='/assets/horse.gltf' / -->
 
-<Phonix    bind:pos  bind:pxcam  {fly}/>
-
-
+<Phonix    bind:pos  bind:pxcam  {rotat} {cam}  {fly}/>
 
 {#await  moon  then  m }
     {#if day_night<0}
         <T  
-            is={m.scene}    position={[0, 24, -800]}
-            scale={128}     rotation={[6, rotation, .4]}
+            is={m.scene}    position={[0, 555, -888]}
+            scale={150}     rotation={[-4, rotation/4, 1]}
             intensity={1}
         />
     {/if}
