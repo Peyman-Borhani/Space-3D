@@ -8,18 +8,22 @@ Title: phoenix bird
 -->
 <script>
 
-  import    {Spring}        from  'svelte/motion';
+  import    {Spring}            from  'svelte/motion'
+  //import    {on}                from  'svelte/events';
 
-  import    { Group }       from  'three';
-  import    { T }           from  '@threlte/core';
+  import    { Group }           from  'three';
+  import    { T, useThrelte}    from  '@threlte/core';
   import    { useGltf, useGltfAnimations, OrbitControls } from '@threlte/extras';
 	
+const HFngPI= -1.5708; //-Math.PI /2
 
-  let { fallback,  error,  children, 
-        ref =$bindable(),  pxcam=$bindable(false),
-        pos=[new Spring(0), new Spring(128), new Spring(256)],
-        size, ...props
-  } =$props();
+let { fallback,  error,  children, ref =$bindable(),  
+      size,   fly=false,    pxcam=$bindable(false),
+      pos    =[new Spring(0), new Spring(128), new Spring(256)],
+      cam    =[new Spring(HFngPI), new Spring(0), new Spring(1.4)],  //48 - 256
+      rotate =[new Spring(HFngPI), new Spring(0), new Spring(1.4)],
+      ...props
+} =$props();
 
 
   ref = new Group()
