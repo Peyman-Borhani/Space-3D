@@ -20,28 +20,33 @@
     
     let {actions, mixer} =useGltfAnimations(world)
 
-    setTimeout(()=> console.log('items: ', world, actions), 2000 );
+    let {actions, mixer} =useGltfAnimations(world);
     //setTimeout(()=> {$actions['Animation'].play()}, 3000 );
 
     interactivity();
-
-    const scale = [new Spring(1), new Spring(1)];
-    let cam = $state([new Spring(0), new Spring(48), new Spring(256)]);
-    let pos   = $state([new Spring(0), new Spring(64), new Spring(26)]);
-    let rotat = $state([new Spring(-Math.PI /2, {damping:.2}), new Spring(1.55), new Spring(1.75)]);
-    let path  = $state('');
-    let mov   = $state('');
-    //const cam   = [new Spring(0), new Spring(128), new Spring(256)];
-    console.log('cam: ',cam[1])
-    //let y = 1;//setInterval(()=>{ y=y>6? 1  :y+1}, 200)
-    let rotation = $state(0);
-    let autoRotate = $state(false);
-    let day_night =$state(-8);
-    let fly =$state(false);
-    let mov_count = 0;
     
-useTask( (delta)=> { 
+    const HFngPI= -1.5708; //-Math.PI /2
 
+    let  cam    = $state([new Spring(0), new Spring(48), new Spring(26)]);
+    let  pos    = $state([new Spring(0), new Spring(64), new Spring(26)]);
+    let  rotate = $state([new Spring(HFngPI), new Spring(1.55), new Spring(1.75)]);
+    let  prvrtt = [HFngPI,  1.55,  1.75];
+    let  path   = $state('');
+    let  move   = $state('');
+    let  prv_move ='';
+    let  px=0, py=0, pz=0;  // x  y  z
+    const  scale  =[new Spring(1), new Spring(1)];
+    //const cam   = [new Spring(0), new Spring(128), new Spring(256)];
+    //console.log('cam: ',cam[1])
+    //setInterval(()=>{ fly =!fly}, 500)
+    let  rotation   =$state(0);
+    let  autoRotate =$state(false);
+    let  day_night  =$state(-8);
+    let  fly        =$state(false);
+    let  count_x =0,   // x
+         count_y =0,   // y
+         count_z =0;   // z
+  
         rotation += delta*.3;
     
         if(mov_count>25) {path='';  mov_count=0}
